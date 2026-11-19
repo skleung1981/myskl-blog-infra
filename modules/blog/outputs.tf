@@ -11,3 +11,7 @@ output "distribution_id" {
 output "site_url" {
  value = local.use_custom_domain ? "https://${var.site_domain_names[0]}" : "https://${aws_cloudfront_distribution.site.domain_name}"
 }
+
+output "deploy_role_arn" {
+  value = one(aws_iam_role.deploy[*].arn)
+}

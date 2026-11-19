@@ -11,4 +11,5 @@ module "blog" {
 
   hosted_zone_name  = "myskl.dev"
   site_domain_names = ["dev.myskl.dev"]
+  deployer_principal_arns = ["arn:aws:iam::785139344768:user/jenkins"]
 }

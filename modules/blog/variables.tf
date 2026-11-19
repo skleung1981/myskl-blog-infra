@@ -26,3 +26,9 @@ variable "site_domain_names" {
   type        = list(string)
   default     = []
 }
+
+variable "deployer_principal_arns" {
+  description = "IAM principals (e.g. the Jenkins user) allowed to assume the deploy role"
+  type        = list(string)
+  default     = []
+}

@@ -9,3 +9,7 @@ output "distribution_id" {
 output "site_url" {
   value = module.blog.site_url
 }
+
+output "deploy_role_arn" {
+  value = module.blog.deploy_role_arn
+}
