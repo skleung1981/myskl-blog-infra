@@ -74,8 +74,12 @@ resource "aws_cloudfront_function" "spa_rewrite" {
   code    = <<-EOT
     function handler(event) {
       var request = event.request;
-      if (!request.uri.includes('.')) {
-        request.uri = '/index.html';
+      var uri = request.uri;
+
+      if (uri.endsWith('/')) {
+        request.uri = uri + 'index.html';
+      } else if (!uri.split('/').pop().includes('.')) {
+        request.uri = uri + '/index.html';
       }
       return request;
     }
